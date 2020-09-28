@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-List<Container> getDotIndicatorForSlide(List _imageList, int _current) {
+Row getDotIndicatorForSlide(List _imageList, int _current, Color _dotColor) {
   var indicatorList = List<Container>();
   _imageList.forEach((i) {
     var cont = Container(
@@ -9,11 +9,11 @@ List<Container> getDotIndicatorForSlide(List _imageList, int _current) {
       margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
       decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: _current == i - 1
-              ? Color.fromRGBO(0, 0, 0, 0.9)
-              : Color.fromRGBO(0, 0, 0, 0.4)),
+          color: _current == i - 1 ? Color.fromRGBO(0, 0, 0, 0.9) : _dotColor),
     );
     indicatorList.add(cont);
   });
-  return indicatorList;
+
+  return Row(
+      mainAxisAlignment: MainAxisAlignment.center, children: indicatorList);
 }

@@ -6,7 +6,7 @@ class LoginPage extends StatelessWidget {
     return Container(
         margin: EdgeInsets.only(left: 20, right: 20),
         child: SafeArea(
-                  child: Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFormField(

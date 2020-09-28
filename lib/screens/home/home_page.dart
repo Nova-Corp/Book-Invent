@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'widgets/dot_indicator_widget.dart';
-import 'widgets/available_book_list.dart';
-import 'widgets/home_book_slide_card.dart';
+import '../widgets/dot_indicator_widget.dart';
+import '../widgets/available_book_list.dart';
+import '../widgets/home_book_slide_card.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -47,9 +47,8 @@ class _HomePageState extends State<HomePage> {
                   }).toList(),
                 ),
               ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: getDotIndicatorForSlide(_imageList, _current)),
+              getDotIndicatorForSlide(
+                  _imageList, _current, Color.fromRGBO(0, 0, 0, 0.9)),
               Row(
                 children: [
                   SizedBox(
