@@ -1,8 +1,10 @@
+import 'package:book_invent/screens/cart/cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../widgets/dot_indicator_widget.dart';
 import '../widgets/available_book_list.dart';
 import '../widgets/home_book_slide_card.dart';
+import 'package:badges/badges.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,9 +20,23 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
       title: 'HomePage',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Home'),
-        ),
+        appBar: AppBar(title: Text('Home'), actions: [
+          Builder(
+            builder: (context) => Badge(
+              badgeContent: Text(
+                '3',
+                style: TextStyle(color: Colors.white),
+              ),
+              position: BadgePosition.topEnd(top: 1, end: 5),
+              child: IconButton(
+                  icon: new Icon(Icons.shopping_cart),
+                  onPressed: () => {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => CartPage()))
+                      }),
+            ),
+          )
+        ]),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -48,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               getDotIndicatorForSlide(
-                  _imageList, _current, Color.fromRGBO(0, 0, 0, 0.9)),
+                  _imageList, _current, Color.fromRGBO(0, 0, 0, 0.5)),
               Row(
                 children: [
                   SizedBox(
